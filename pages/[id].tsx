@@ -18,15 +18,11 @@ const Pic = (props: Props) => {
 
     const i = JSON.parse(images);
 
-    console.log(id);
-
     const found = i.find((obj) => {
       return obj.id === id;
     });
 
     setPic(found);
-
-    console.log(i);
   }, [id]);
 
   return (
