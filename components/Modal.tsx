@@ -10,8 +10,6 @@ type Props = {
 };
 
 const Modal = ({ showModal, setShowModal }: Props) => {
-  console.log(showModal);
-
   return (
     <>
       {showModal.state === true ? (
