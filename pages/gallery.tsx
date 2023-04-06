@@ -11,7 +11,7 @@ import { setLocalStorage } from "@/helpers";
 
 type Props = {};
 
-const gallery = (props: Props) => {
+const Gallery = (props: Props) => {
   const [pics, setPics] = useState<[] | null>();
 
   const [showModal, setShowModal] = useState({ state: false, image: {} });
@@ -91,4 +91,4 @@ const gallery = (props: Props) => {
   );
 };
 
-export default gallery;
+export default Gallery;
