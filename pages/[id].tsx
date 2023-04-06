@@ -66,7 +66,7 @@ const Pic = (props: Props) => {
             >
               <form
                 className="w-full space-y-4 overflow-hidden"
-                aria-disabled="true"
+                // aria-disabled="true"
               >
                 <h2 className="-mb-3 ml-1 text-lg capitalize">filters</h2>
 
@@ -274,6 +274,7 @@ const Pic = (props: Props) => {
                 height="375"
                 width="300"
                 src={pic?.links.download}
+                alt=""
               />
             </div>
           </section>

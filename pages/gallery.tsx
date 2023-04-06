@@ -8,6 +8,7 @@ import { useFetchImages } from "@/data/fetchHooks";
 import { getPhotosByQuery } from "./api/images";
 import { Images } from "@/data/types";
 import { setLocalStorage } from "@/helpers";
+import Image from "next/image";
 
 type Props = {};
 
@@ -43,7 +44,7 @@ const Gallery = (props: Props) => {
               {pics?.map((image: Images) => (
                 <>
                   <div key={image.id} className="cursor-pointer">
-                    <img
+                    <Image
                       className="h-[300px] max-w-full rounded-lg"
                       src={image.links?.download}
                       alt=""
