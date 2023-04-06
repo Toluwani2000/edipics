@@ -16,9 +16,9 @@ const Pic = (props: Props) => {
   useEffect(() => {
     const images = localStorage.getItem("imgs");
 
-    const i = JSON.parse(images);
+    const i = JSON.parse(images as string);
 
-    const found = i.find((obj) => {
+    const found = i.find((obj: Images) => {
       return obj.id === id;
     });
 

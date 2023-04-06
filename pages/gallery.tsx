@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 // import { images } from "./api/data";
 import Modal from "@/components/Modal";
 import axios from "axios";
-import { useFetchImages } from "@/data/fetchHooks";
+// import { useFetchImages } from "@/data/fetchHooks";
 import { getPhotosByQuery } from "./api/images";
 import { Images } from "@/data/types";
 import { setLocalStorage } from "@/helpers";
