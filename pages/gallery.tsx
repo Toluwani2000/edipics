@@ -47,7 +47,7 @@ const Gallery = (props: Props) => {
               {pics?.map((image: Images) => (
                 <>
                   <div key={image.id} className="cursor-pointer">
-                    <Image
+                    <img
                       className="h-[300px] max-w-full rounded-lg"
                       src={image.links?.download}
                       alt=""
@@ -87,6 +87,7 @@ const Gallery = (props: Props) => {
                 </>
               ))}
             </div>
+
             <Modal showModal={showModal} setShowModal={setShowModal} />
           </div>
         </section>

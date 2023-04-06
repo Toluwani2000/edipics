@@ -44,11 +44,11 @@ const Pic = (props: Props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Helmet>
+      <Helmet>
         <script type="text/javascript" src="/scripts/editor.js" />
-      </Helmet> */}
+      </Helmet>
 
-      <Script src="/scripts/editor.js" />
+      {/* <Script src="/scripts/editor.js" /> */}
       <div className="bg-white dark:bg-gray-900 h-screen">
         <main className="m-auto w-full max-w-[900px] rounded-xl bg-white py-4 px-5 shadow-[0_3px_6px_#00000029_,_0_3px_6px_#0000003b] dark:bg-slate-900 dark:text-white">
           <h1 className="mb-6 text-2xl font-semibold capitalize tracking-wide md:text-3xl">

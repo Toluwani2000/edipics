@@ -6,6 +6,7 @@ type Props = {
     state: boolean;
     image: Images;
   };
+  // @ts-ignore
   setShowModal: (showModal: {}) => void;
 };
 
