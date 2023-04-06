@@ -7,7 +7,7 @@ type Props = {
     image: Images;
   };
   // @ts-ignore
-  setShowModal: (showModal: {}) => void;
+  setShowModal;
 };
 
 const Modal = ({ showModal, setShowModal }: Props) => {
