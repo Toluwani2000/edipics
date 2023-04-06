@@ -15,7 +15,10 @@ type Props = {};
 const Gallery = (props: Props) => {
   const [pics, setPics] = useState<[] | null>();
 
-  const [showModal, setShowModal] = useState({ state: false, image: {} });
+  const [showModal, setShowModal] = useState({
+    state: false,
+    image: {} as Images,
+  });
 
   useEffect(() => {
     getPhotosByQuery()
