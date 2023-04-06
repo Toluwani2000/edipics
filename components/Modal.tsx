@@ -61,8 +61,8 @@ const Modal = ({ showModal, setShowModal }: Props) => {
                       className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                       name="desc"
                       id=""
-                      cols="30"
-                      rows="10"
+                      cols={30}
+                      rows={10}
                     ></textarea>
                   </form>
                 </div>
