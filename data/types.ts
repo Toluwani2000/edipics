@@ -11,9 +11,9 @@ export type Images = {
   // results: Pic[];
   // total_pages: number;
   // total_results: number;
-  id: string;
-  links: {
-    self: string;
-    download: string;
+  id: number;
+  alt: string;
+  src: {
+    original: string;
   };
 };

@@ -7,8 +7,8 @@ let domStrings = {
 	filterRangeInput: document.getElementById('filterRangeInput'),
 	flipRotateBtns: document.querySelectorAll('#flipRotateBtns button'),
 	resetFiltersBtn: document.getElementById('resetFiltersBtn'),
-	selectImgBtn: document.getElementById('selectImageBtn'),
-	imgInput: document.getElementById('imageFileInput'),
+	// selectImgBtn: document.getElementById('selectImageBtn'),
+	// imgInput: document.getElementById('imageFileInput'),
 	imgPreview: document.getElementById('imagePreview'),
 	saveImgBtn: document.getElementById('downloadImageBtn'),
 	copyrightDate: document.getElementById('copyrightDate'),
@@ -18,7 +18,7 @@ const globalItems = {
 	/* brightness(100%) grayscale(0%) blur(0px) hue-rotate(0deg) opacity(100%) contrast(100%) saturate(100%) invert(0%) sepia(0%) */
 	cssFilterProperties: '',
 	imgFileName: null,
-	imgExtension: null,
+	imgExtension: "jpg",
 	rotationDeg: 0,
 	verticalFlip: 1,
 	horizontalFlip: 1,
@@ -87,44 +87,44 @@ const globalItems = {
 }
 
 // preview selected image and activate edit options
-{
-	domStrings.saveImgBtn.disabled = false; /* make sure 'save image' button is disabled (for Firefox) */
-	domStrings.selectImgBtn.addEventListener('click', () => domStrings.imgInput.click());
-	domStrings.imgInput.addEventListener('change', (event) => {
-		// declare data & abbreviations
-		const imgPreview = domStrings.imgPreview;
-		const selectedFile = event.target.files[0];
+// {
+// 	domStrings.saveImgBtn.disabled = false; /* make sure 'save image' button is disabled (for Firefox) */
+// 	// domStrings.selectImgBtn.addEventListener('click', () => domStrings.imgInput.click());
+	
+// 		// declare data & abbreviations
+// 		const imgPreview = domStrings.imgPreview;
+// 		// const selectedFile = event.target.files[0];
+// 		const selectedFile = imgPreview.src;
 
-		// return if user hasn't selected a file
-		if (!selectedFile) return;
+// 		// return if user hasn't selected a file
+// 		// if (!selectedFile) return;
 
-		// read and set the data of the imported image (if the image exists)
-		if (selectedFile) {
-			// reset all filters if there was already an image
-			if (imgPreview.src) resetFilters();
+// 		// read and set the data of the imported image (if the image exists)
+// 		if (selectedFile) {
+// 			// reset all filters if there was already an image
+// 			if (imgPreview.src) resetFilters();
 
-			// load and preview selected image
-			imgPreview.src = URL.createObjectURL(selectedFile);
-			imgPreview.addEventListener('load', () => {
-				// get the filename and extension of the imported image
-				const lastDot = selectedFile.name.lastIndexOf('.');
-				globalItems.imgFileName = selectedFile.name.substring(0, lastDot);
-				globalItems.imgExtension = selectedFile.name.substring(lastDot + 1).toLowerCase();
+// 			// load and preview selected image
+// 			imgPreview.src = URL.createObjectURL(selectedFile);
+// 			imgPreview.addEventListener('load', () => {
+// 				// get the filename and extension of the imported image
+// 				const lastDot = selectedFile.name.lastIndexOf('.');
+// 				globalItems.imgFileName = selectedFile.name.substring(0, lastDot);
+// 				globalItems.imgExtension = selectedFile.name.substring(lastDot + 1).toLowerCase();
 
-				// set 'alt' and 'name' of the image
-				imgPreview.title = globalItems.imgFileName;
-				imgPreview.alt = selectedFile.name;
+// 				// set 'alt' and 'name' of the image
+// 				imgPreview.title = globalItems.imgFileName;
+// 				imgPreview.alt = selectedFile.name;
 
-				// enable edit options
-				domStrings.saveImgBtn.ariaDisabled = 'false';
-				domStrings.saveImgBtn.removeAttribute('disabled');
-				imgPreview.parentElement.classList.add('contains-img');
-				domStrings.editOptionsContainer.classList.remove('disabled-options');
-				domStrings.editOptionsContainer.querySelector('form').ariaDisabled = 'false';
-			});
-		}
-	});
-}
+// 				// enable edit options
+// 				domStrings.saveImgBtn.ariaDisabled = 'false';
+// 				domStrings.saveImgBtn.removeAttribute('disabled');
+// 				imgPreview.parentElement.classList.add('contains-img');
+// 				domStrings.editOptionsContainer.classList.remove('disabled-options');
+// 				domStrings.editOptionsContainer.querySelector('form').ariaDisabled = 'false';
+// 			});
+// 		}
+// 	 }
 
 // apply edits and filters
 {
@@ -275,20 +275,29 @@ const globalItems = {
 {
 	const imgPreview = domStrings.imgPreview;
 	const canvas = document.createElement('canvas');
+	imgPreview.setAttribute('crossOrigin', 'anonymous');
+
+	console.log(imgPreview)
 
 	domStrings.saveImgBtn.addEventListener('click', () => {
 		saveImg();
-
+		
 		// create download link and download canvas image
 		const link = document.createElement('a');
-		link.download = `${globalItems.imgFileName} (edited).${globalItems.imgExtension}`;
+		let name = imgPreview.src.split("/")
+
+		link.download = `${name[4]}-(edited).${globalItems.imgExtension}`;
+	
 		link.href = canvas.toDataURL();
+
+		// link.href = canvas.toDataURL();
 		link.click(); /* download edited image */
 	});
 
 	function saveImg() {
 		// declare data & abbreviations
 		const ctx = canvas.getContext('2d'); /* create canvas 2d context */
+		
 
 		// set canvas properties based on the edited image
 		canvas.width = imgPreview.naturalWidth; /* set canvas width to the image's width */

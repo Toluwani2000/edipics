@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Images } from "@/data/types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
@@ -271,6 +272,7 @@ const Pic = (props: Props) => {
                 width="300"
                 src={pic?.links.download}
                 alt=""
+                // crossOrigin="anonymous"
               />
             </div>
           </section>

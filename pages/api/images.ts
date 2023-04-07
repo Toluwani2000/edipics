@@ -17,13 +17,19 @@
 
 import axios from "axios";
 
-const clientId = process.env.NEXT_PUBLIC_UNSPLASH_CLIENT_ID;
+const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 const UNSPLASH_ROOT = "https://api.unsplash.com";
 
 export const getPhotosByQuery = async () => {
   const { data } = await axios.get(
-    `https://api.unsplash.com/photos?page=&client_id=OVfd2cLYLZKFFpYMVIM0Uk9BczpAU2-1wGRM-JlW1lU&per_page=50`
+    `https://api.pexels.com/v1/curated?page=1&per_page=50`,
+    {
+      headers: {
+        Authorization: apiKey,
+      },
+    }
   );
-  return data;
+
+  return data.photos;
 };
