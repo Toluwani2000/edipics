@@ -101,7 +101,7 @@ export default function ImageEditorMenu({
         />
       </div>
       <div style={{ maxWidth: "540px" }}>
-        필터 - 빈티지
+        Add Filter - Vintage
         <Switch
           checked={data.filter === "vintage"}
           onChange={(to) => {
@@ -110,7 +110,7 @@ export default function ImageEditorMenu({
         />
       </div>
       <div style={{ maxWidth: "540px" }}>
-        필터 - 흑백
+        Add Filter - Black & White
         <Switch
           checked={data.filter === "grayscale"}
           onChange={(to) => {
