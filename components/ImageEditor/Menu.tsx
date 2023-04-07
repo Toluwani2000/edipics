@@ -61,7 +61,7 @@ export default function ImageEditorMenu({
         />
       </div>
       <div style={{ maxWidth: "540px" }}>
-        대비
+        Contrast
         <Slider
           defaultValue={50}
           min={0}
@@ -70,7 +70,7 @@ export default function ImageEditorMenu({
         />
       </div>
       <div style={{ maxWidth: "540px" }}>
-        색온도
+        Temparature
         <Slider
           defaultValue={50}
           min={0}
@@ -81,7 +81,7 @@ export default function ImageEditorMenu({
         />
       </div>
       <div style={{ maxWidth: "540px" }}>
-        색조
+        Hue
         <Slider
           defaultValue={50}
           min={0}
@@ -90,7 +90,7 @@ export default function ImageEditorMenu({
         />
       </div>
       <div style={{ maxWidth: "540px" }}>
-        채토
+        Saturation
         <Slider
           defaultValue={50}
           min={0}

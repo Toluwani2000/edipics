@@ -55,9 +55,6 @@ export default function ImageEditor({ pic }: Props) {
           isVisible={index === editingIndex}
         />
       ))}
-      <button onClick={() => move(-1)}>prev</button>
-      index: {editingIndex}
-      <button onClick={() => move(+1)}>next</button>
     </>
   );
 }
